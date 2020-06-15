@@ -76,3 +76,4 @@ def encerra_menu():
 
 
 escolher_menu()
+***
