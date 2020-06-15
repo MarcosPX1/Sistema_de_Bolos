@@ -68,7 +68,18 @@ def olhar_itens():
         print("1 Bolo contendo o(s) sabor(es):", produtos_selecionados_bolo)
         break
     print("***" * 15)
+    caixa()
     escolher_menu()
+
+
+def caixa():
+    valor_total = 0
+     # chocolate - 2 , limão - 2 , morango - 4 , prestigio - 3 , nutella - 5
+    if produtos_selecionados_bolo[0] == sabor_bolo[0]:
+        valor_total = valor_total + 2
+    elif produtos_selecionados_bolo[1] == sabor_bolo[1]:
+        valor_total = valor_total + 2
+    print("Sua conta deu exatamente :", valor_total)
 
 
 def encerra_menu():
