@@ -67,18 +67,39 @@ def seleciona_sabor_bolo():
 def seleciona_sabor_torta():
     print("********* Sabores disponíveis abaixo ********* ")
     print(sabor_tortas, '\n')
+    print("Utilize os números de 1 a 5 para selecionar os sabores na ordem")
     torta = input("Favor indicar o sabor da torta: ")
+    if torta == '1':
+        torta = sabor_tortas[0]
+    elif torta == '2':
+        torta = sabor_tortas[1]
+    elif torta == '3':
+        torta = sabor_tortas[2]
+    elif torta == '4':
+        torta = sabor_tortas[3]
+    elif torta == '5':
+        torta = sabor_tortas[4]
     # Se o sabor for algum da var sabor_tortas deverá ser armazenado este produto em produtos_selecionados[]
     if torta in sabor_tortas:  # Se for selecionado alguma string tal qual as que se encontram na lista, será feito a inclusão na lista de produtos selecionados
         produtos_selecionados_torta.append(torta)
     while torta in sabor_tortas:  # Enquanto torta estiver dentro da lista da var sabor tortas faça:
-        opcao = input(
-            'Deseja adicionar mais algum sabor? (1 para Sim e 2 para Não) : ')  # Armazena uma nova opção de sabor digitada pelo usuário
+        opcao = int(input(
+            'Deseja adicionar mais algum sabor? (1 para Sim e 2 para Não) : '))  # Armazena uma nova opção de sabor digitada pelo usuário
         if opcao == 1:
-            torta = input("Favor indicar o sabor da torta: ")
+            torta = input("Favor indicar o sabor do bolo: ")
+            if torta == '1':
+                torta = sabor_tortas[0]
+            elif torta == '2':
+                torta = sabor_tortas[1]
+            elif torta == '3':
+                torta = sabor_tortas[2]
+            elif torta == '4':
+                torta = sabor_tortas[3]
+            elif torta == '5':
+                torta = sabor_tortas[4]
             if torta in sabor_tortas:
                 produtos_selecionados_torta.append(torta)
-        elif opcao == 1:
+        elif opcao == 2:
             escolher_menu()
             break
 
@@ -99,6 +120,7 @@ def olhar_itens():
 def caixa():
     valor_total = 0
     # chocolate - 2 , limão - 2 , morango - 4 , prestigio - 3 , nutella - 5
+    # Valores das tortas =  "Frango - 5 ", "Carne - 7 ", "Legumes - 4", "Camarão - 10", "Calabresa - 7"
     # Se os valores de SaborBolo estiverem nas posições 0 a 4 da variavel produtos_selecionados_bolo - Some o valor total com o valor do sabor
 
     if sabor_bolo[0] in produtos_selecionados_bolo[0:4]:
@@ -111,6 +133,17 @@ def caixa():
         valor_total = valor_total + 3
     if sabor_bolo[4] in produtos_selecionados_bolo[0:4]:
         valor_total = valor_total + 5
+
+    if sabor_tortas[0] in produtos_selecionados_torta[0:4]:
+        valor_total = valor_total + 5
+    if sabor_tortas[1] in produtos_selecionados_torta[0:4]:
+        valor_total = valor_total + 7
+    if sabor_tortas[2] in produtos_selecionados_torta[0:4]:
+        valor_total = valor_total + 4
+    if sabor_tortas[3] in produtos_selecionados_torta[0:4]:
+        valor_total = valor_total + 10
+    if sabor_tortas[4] in produtos_selecionados_torta[0:4]:
+        valor_total = valor_total + 7
 
     print("Sua conta deu exatamente :", valor_total)
 
